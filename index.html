@@ -74,20 +74,18 @@
         <div class="zoom-element">
             <svg viewBox="0 0 500 295">
                 <defs>
-                    <!--
                     <filter id="raue-front" filterUnits="userSpaceOnUse" x="-500" y="-500" width="2000" height="2000">
                         <feTurbulence type="fractalNoise" baseFrequency="0.1" numOctaves="1" result="rauschen" />
                         <feDisplacementMap in="SourceGraphic" in2="rauschen" scale="10" xChannelSelector="R" yChannelSelector="G" />
                     </filter>
-                    -->
                     <mask id="maske-bild-1">
-                        <path class="pfad-1" d="M 0,420 650,0" fill="none" stroke="white" stroke-width="400" stroke-linecap="round"/>
+                        <path class="pfad-1" d="M 0,420 650,0" fill="none" stroke="white" stroke-width="400" stroke-linecap="round" filter="url(#raue-front)" />
                     </mask>
                     <mask id="maske-bild-2">
-                        <path class="pfad-2" d="M180.5 299.788L366 76.7881L74 310.288L292.5 0.288057" fill="none" stroke="white" stroke-width="70" stroke-linecap="round"/>
+                        <path class="pfad-2" d="M180.5 299.788L366 76.7881L74 310.288L292.5 0.288057" fill="none" stroke="white" stroke-width="70" stroke-linecap="round" filter="url(#raue-front)" />
                     </mask>
                     <mask id="maske-bild-3">
-                        <path class="pfad-3" d="M17.5 138.5L491 128.5" fill="none" stroke="white" stroke-width="150" stroke-linecap="round"/>
+                        <path class="pfad-3" d="M17.5 138.5L491 128.5" fill="none" stroke="white" stroke-width="150" stroke-linecap="round" filter="url(#raue-front)"/>
                     </mask>
                 </defs>
                 
