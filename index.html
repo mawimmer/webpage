@@ -40,6 +40,12 @@
             will-change: transform;
             transform: translateZ(0);
             -webkit-transform: translateZ(0);
+            animation: intro-zoom-raus 4s cubic-bezier(0.2, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes intro-zoom-raus {
+            0% { transform: scale(3); }
+            100% { transform: scale(1); }
         }
 
         .zoom-element, .pfad-1, .pfad-2, .pfad-3 {
