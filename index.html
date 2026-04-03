@@ -30,7 +30,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            transform-origin: center center; 
+            transform-origin: center center;
+            will-change: transform;
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
         }
 
         .zoom-element, .pfad-1, .pfad-2, .pfad-3 {
@@ -45,6 +48,11 @@
         .zoom-element svg {
             width: 100%;
             height: auto;
+        }
+
+        svg {
+            /* Verhindert das Neu-Rendern von Subpixeln während des Zooms */
+            shape-rendering: crispEdges; 
         }
 
         /* DEIN ORIGINAL CSS IST ZURÜCK! Genau deine Zeiten und Beziers! */
@@ -73,13 +81,13 @@
                     </filter>
                     -->
                     <mask id="maske-bild-1">
-                        <path class="pfad-1" d="M 0,420 650,0" fill="none" stroke="white" stroke-width="400" stroke-linecap="round" filter="url(#raue-front)" />
+                        <path class="pfad-1" d="M 0,420 650,0" fill="none" stroke="white" stroke-width="400" stroke-linecap="round"/>
                     </mask>
                     <mask id="maske-bild-2">
-                        <path class="pfad-2" d="M180.5 299.788L366 76.7881L74 310.288L292.5 0.288057" fill="none" stroke="white" stroke-width="70" stroke-linecap="round" filter="url(#raue-front)" />
+                        <path class="pfad-2" d="M180.5 299.788L366 76.7881L74 310.288L292.5 0.288057" fill="none" stroke="white" stroke-width="70" stroke-linecap="round"/>
                     </mask>
                     <mask id="maske-bild-3">
-                        <path class="pfad-3" d="M17.5 138.5L491 128.5" fill="none" stroke="white" stroke-width="150" stroke-linecap="round" filter="url(#raue-front)"/>
+                        <path class="pfad-3" d="M17.5 138.5L491 128.5" fill="none" stroke="white" stroke-width="150" stroke-linecap="round"/>
                     </mask>
                 </defs>
                 
