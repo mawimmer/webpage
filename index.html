@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matt | Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                            700: '#334155',
+                        },
+                        accent: {
+                            400: '#38bdf8', 
+                            500: '#0ea5e9',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styles for smooth animations */
+        .fade-in {
+            animation: fadeIn 1s ease-in forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .text-glow { text-shadow: 0 0 20px rgba(56, 189, 248, 0.4); }
+    </style>
+</head>
+
+<body class="bg-dark-900 text-slate-300 font-sans antialiased selection:bg-accent-500 selection:text-white">
+
+    <!-- Header / Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-dark-900/80 backdrop-blur-md border-b border-dark-700">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold text-white tracking-tighter hover:text-accent-400 transition-colors">
+                        Matt<span class="text-accent-500">.</span>
+                    </a>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-sm font-medium text-slate-300 hover:text-accent-400 transition-colors">About Me</a>
+                    <a href="#skills" class="text-sm font-medium text-slate-300 hover:text-accent-400 transition-colors">Skills</a>
+                    <a href="#projects" class="text-sm font-medium text-slate-300 hover:text-accent-400 transition-colors">Projects</a>
+                    <a href="#experience" class="text-sm font-medium text-slate-300 hover:text-accent-400 transition-colors">Experience</a>
+                </nav>
+                <div class="md:hidden flex items-center">
+                    <button class="text-slate-300 hover:text-white focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-500/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+        
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <p class="text-accent-400 font-medium tracking-wide mb-4 fade-in">Welcome to my portfolio</p>
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight fade-in delay-100">
+                Hi, I'm <br class="md:hidden" />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-400 to-emerald-400 text-glow">Matt.</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-400 mb-10 max-w-2xl mx-auto fade-in delay-200">
+                Molecular Biosciences Student & Tech Enthusiast
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 fade-in delay-300">
+                <a href="#projects" class="px-8 py-3 bg-accent-500 hover:bg-accent-400 text-white font-semibold rounded-lg shadow-lg hover:shadow-accent-500/30 transition-all duration-300 w-full sm:w-auto">
+                    View My Projects
+                </a>
+                <a href="#about" class="px-8 py-3 bg-transparent border border-dark-700 hover:border-accent-400 text-white font-semibold rounded-lg transition-all duration-300 w-full sm:w-auto">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-24 bg-dark-800/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">About Me</h2>
+                <div class="w-16 h-1 bg-accent-500 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-lg text-slate-300 leading-relaxed">
+                    <p>
+                        I am currently studying <strong class="text-white">Molecular Biosciences</strong> at JKU Linz, driven by a fascination for the building blocks of life and complex biological systems.
+                    </p>
+                    <p>
+                        What sets my journey apart is my multidisciplinary background. Before diving into the life sciences, I built a strong foundation in <strong class="text-white">mechanical engineering</strong> and software development. 
+                    </p>
+                    <p>
+                        When I am not in the lab or coding, you will find me at the climbing gym, where I also work as a certified climbing instructor and route setter, merging creativity with physical problem-solving.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-dark-900 p-6 rounded-xl border border-dark-700 shadow-lg flex flex-col items-center justify-center text-center group hover:border-accent-500 transition-colors">
+                        <i class="fas fa-dna text-4xl text-accent-400 mb-4 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="font-bold text-white">Life Sciences</h3>
+                    </div>
+                    <div class="bg-dark-900 p-6 rounded-xl border border-dark-700 shadow-lg flex flex-col items-center justify-center text-center group hover:border-accent-500 transition-colors">
+                        <i class="fas fa-cogs text-4xl text-emerald-400 mb-4 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="font-bold text-white">Engineering</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Skills & Expertise</h2>
+                <div class="w-16 h-1 bg-accent-500 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Skill 1: Programming -->
+                <div class="bg-dark-800 rounded-2xl p-6 border border-dark-700 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                    <i class="fas fa-code text-3xl text-accent-400 mb-4"></i>
+                    <h3 class="text-lg font-bold text-white mb-3">Programming</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-dark-900 text-xs rounded text-slate-300 border border-dark-700">C++</span>
+                        <span class="px-2 py-1 bg-dark-900 text-xs rounded text-slate-300 border border-dark-700">JavaScript</span>
+                        <span class="px-2 py-1 bg-dark-900 text-xs rounded text-slate-300 border border-dark-700">Java</span>
+                    </div>
+                </div>
+
+                <!-- Skill 2: Hardware -->
+                <div class="bg-dark-800 rounded-2xl p-6 border border-dark-700 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                    <i class="fas fa-microchip text-3xl text-emerald-400 mb-4"></i>
+                    <h3 class="text-lg font-bold text-white mb-3">Hardware & Embedded</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-dark-900 text-xs rounded text-slate-300 border border-dark-700">ESP32</span>
+                        <span class="px-2 py-1 bg-dark-900 text-xs rounded text-slate-300 border border-dark-700">Arduino</span>
+                        <span class="px-2 py-1 bg-dark-900 text-xs rounded text-slate-300 border border-dark-700">EasyEDA</span>
+                        <span class="px-2 py-1 bg-dark-900 text-xs rounded text-slate-300 border border-dark-700">PCB Design</span>
+                    </div>
+                </div>
+
+                <!-- Skill 3: CAD -->
+                <div class="bg-dark-800 rounded-2xl p-6 border border-dark-700 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                    <i class="fas fa-cube text-3xl text-purple-400 mb-4"></i>
+                    <h3 class="text-lg font-bold text-white mb-3">3D CAD</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-dark-900 text-xs rounded text-slate-300 border border-dark-700">PTC Creo</span>
+                        <span class="px-2 py-1 bg-dark-900 text-xs rounded text-slate-300 border border-dark-700">Fusion 360</span>
+                        <span class="px-2 py-1 bg-dark-900 text-xs rounded text-slate-300 border border-dark-700">3D Printing</span>
+                    </div>
+                </div>
+                
+                <!-- Skill 4: Life Sciences -->
+                <div class="bg-dark-800 rounded-2xl p-6 border border-dark-700 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                    <i class="fas fa-flask text-3xl text-rose-400 mb-4"></i>
+                    <h3 class="text-lg font-bold text-white mb-3">Life Sciences</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-dark-900 text-xs rounded text-slate-300 border border-dark-700">Lab Techniques</span>
+                        <span class="px-2 py-1 bg-dark-900 text-xs rounded text-slate-300 border border-dark-700">Chemistry</span>
+                        <span class="px-2 py-1 bg-dark-900 text-xs rounded text-slate-300 border border-dark-700">Data Analysis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 bg-dark-800/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Selected Projects</h2>
+                <div class="w-16 h-1 bg-accent-500 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="group relative overflow-hidden rounded-2xl bg-dark-900 border border-dark-700 hover:border-accent-500/50 transition-colors">
+                    <div class="p-6">
+                        <i class="fas fa-lightbulb text-3xl text-accent-400 mb-4"></i>
+                        <h3 class="text-xl font-bold text-white mb-3">Custom Smart Lighting</h3>
+                        <p class="text-sm text-slate-400 mb-6">
+                            Developed a custom lighting system using ESP32 and custom WLED firmware. Integrated rotary encoders and designed a custom PCB to handle inputs and power distribution.
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs font-medium text-accent-400">
+                            <span>#ESP32</span>
+                            <span>#WLED</span>
+                            <span>#PCB Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="group relative overflow-hidden rounded-2xl bg-dark-900 border border-dark-700 hover:border-emerald-500/50 transition-colors">
+                    <div class="p-6">
+                        <i class="fas fa-coffee text-3xl text-emerald-400 mb-4"></i>
+                        <h3 class="text-xl font-bold text-white mb-3">Custom Espresso Machine</h3>
+                        <p class="text-sm text-slate-400 mb-6">
+                            Professional-grade custom saturated group head espresso machine. Built utilizing precision CNC milling and turning for metal components. Integrated ESP32-controlled external gear pump for real-time pressure profiling. Mechanical modeling executed in PTC Creo.                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs font-medium text-emerald-400">
+                            <span>#CAD</span>
+                            <span>#Engineering</span>
+                            <span>#FluidDynamics</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="group relative overflow-hidden rounded-2xl bg-dark-900 border border-dark-700 hover:border-purple-500/50 transition-colors">
+                    <div class="p-6">
+                        <i class="fas fa-server text-3xl text-purple-400 mb-4"></i>
+                        <h3 class="text-xl font-bold text-white mb-3">Home Server & Automation</h3>
+                        <p class="text-sm text-slate-400 mb-6">
+                            Set up and maintain a self-hosted home server utilizing Docker. Managed smart home integrations via Home Assistant and network-wide ad blocking with Pi-hole.
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs font-medium text-purple-400">
+                            <span>#Docker</span>
+                            <span>#HomeAssistant</span>
+                            <span>#Pi-hole</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Experience</h2>
+                <div class="w-16 h-1 bg-accent-500 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="space-y-6">
+                <!-- Experience Item 1 -->
+                <div class="bg-dark-800 p-6 rounded-xl border border-dark-700 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:border-accent-500/50 transition-colors">
+                    <div>
+                        <h3 class="text-xl font-bold text-white">University Student Assistant</h3>
+                        <p class="text-slate-400">JKU Linz</p>
+                    </div>
+                    <div class="text-accent-400 text-sm font-medium whitespace-nowrap">
+                        <i class="fas fa-graduation-cap mr-2"></i>Academic
+                    </div>
+                </div>
+
+                <!-- Experience Item 2 -->
+                <div class="bg-dark-800 p-6 rounded-xl border border-dark-700 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:border-emerald-500/50 transition-colors">
+                    <div>
+                        <h3 class="text-xl font-bold text-white">High-throughput Lab Technician</h3>
+                        <p class="text-slate-400">Life Sciences Sector</p>
+                    </div>
+                    <div class="text-emerald-400 text-sm font-medium whitespace-nowrap">
+                        <i class="fas fa-vial mr-2"></i>Laboratory
+                    </div>
+                </div>
+                
+                <!-- Experience Item 3 -->
+                <div class="bg-dark-800 p-6 rounded-xl border border-dark-700 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:border-rose-500/50 transition-colors">
+                    <div>
+                        <h3 class="text-xl font-bold text-white">Chemistry Tutor</h3>
+                        <p class="text-slate-400">Freelance / Educational Support</p>
+                    </div>
+                    <div class="text-rose-400 text-sm font-medium whitespace-nowrap">
+                        <i class="fas fa-book mr-2"></i>Education
+                    </div>
+                </div>
+
+                <!-- Experience Item 4 -->
+                <div class="bg-dark-800 p-6 rounded-xl border border-dark-700 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:border-purple-500/50 transition-colors">
+                    <div>
+                        <h3 class="text-xl font-bold text-white">Certified Climbing Instructor & Route Setter</h3>
+                        <p class="text-slate-400">Sports & Recreation</p>
+                    </div>
+                    <div class="text-purple-400 text-sm font-medium whitespace-nowrap">
+                        <i class="fas fa-mountain mr-2"></i>Athletics
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-dark-700 bg-dark-900 py-12 text-center">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-center space-x-6 text-slate-400 mb-6">
+                <a href="#" class="hover:text-accent-400 transition-colors"><i class="fab fa-github text-2xl"></i></a>
+                <a href="#" class="hover:text-accent-400 transition-colors"><i class="fab fa-linkedin text-2xl"></i></a>
+                <a href="#" class="hover:text-accent-400 transition-colors"><i class="fas fa-envelope text-2xl"></i></a>
+            </div>
+            <p class="text-slate-500 text-sm">&copy; 2026 Matt. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
