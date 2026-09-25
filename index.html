@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" rel="stylesheet" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matt | Portfolio</title>
@@ -290,18 +291,47 @@
                                         <i class="fas fa-code text-accent-400"></i>
                                         WLED Usermod (C++)
                                     </h4>
-                                    <button onclick="copySnippet('code-wled', this)" class="text-[10px] text-slate-400 hover:text-white px-2 py-1 rounded bg-dark-700 border border-dark-600 transition-colors">Copy</button>
+                                    <div class="flex items-center gap-3">
+                                        <!-- GitHub Link -->
+                                        <a href="https://github.com/mawimmer/ESP32-Code/tree/feature/wled-usermod" target="_blank" class="text-[10px] text-slate-400 hover:text-white flex items-center gap-1 transition-colors px-2 py-1 rounded bg-dark-900 border border-dark-700 hover:border-accent-500/50">
+                                            <i class="fab fa-github"></i> GitHub Repo
+                                        </a>
+                                        <button onclick="copySnippet('code-wled', this)" class="text-[10px] text-slate-400 hover:text-white px-2 py-1 rounded bg-dark-700 border border-dark-600 transition-colors">Copy</button>
+                                    </div>
                                 </div>
-                                <pre class="bg-black/50 text-slate-300 font-mono text-[10px] p-3 rounded-lg border border-dark-700 overflow-x-auto"><code id="code-wled">void RotaryUsermod::handleEncoderChange(int8_t step, uint8_t encoderId) {
-    if (encoderId == 0) { 
-        int16_t newBri = (int16_t)bri + (step * 8);
-        bri = (uint8_t)constrain(newBri, 0, 255);
-        stateUpdated(CALL_MODE_DIRECT_CHANGE);
-    } else if (encoderId == 1) { 
-        currentPreset = (currentPreset + step + totalPresets) % totalPresets;
-        applyPreset(currentPreset);
-    }
-}</code></pre>
+                                <pre class="bg-black/50 text-slate-300 font-mono text-[10px] p-3 rounded-lg border border-dark-700 overflow-x-auto"><code id="code-wled" class="language-cpp">        
+/**
+* Hardware - Rotation Detection
+*/
+
+int16_t ValueNOW;
+
+// - if a value has changed
+pcnt_get_counter_value(Encoder.unit, &ValueNOW);
+if (ValueNOW) {
+    pcnt_counter_clear(Encoder.unit);
+    Encoder.deltaValue += ValueNOW;
+
+    Encoder.rotationPending = true;
+    Encoder.TimeOfLastRotation = millis();
+    
+    Serial.printf("Encoder %d has a NEW Value: %d \r\n", i, ValueNOW);
+
+};
+
+// - if a rotation value has changed and is pending to be forwared
+if (Encoder.rotationPending && millis() - Encoder.TimeOfLastRotation >= 300) {
+    Encoder.rotationPending = false;
+    Encoder.eventRotation = true;
+    global_eventPending = true;
+    
+    Serial.printf("Encoder %d has a CONFIRMED Delta: %d \r\n", i, Encoder.deltaValue );
+
+};
+
+...
+
+                                </code></pre>
                             </div>
                         </div>
                     </div>
@@ -384,9 +414,15 @@
                                         <i class="fas fa-code text-emerald-400"></i>
                                         Pressure Loop (C++)
                                     </h4>
-                                    <button onclick="copySnippet('code-espresso', this)" class="text-[10px] text-slate-400 hover:text-white px-2 py-1 rounded bg-dark-700 border border-dark-600 transition-colors">Copy</button>
+                                    <div class="flex items-center gap-3">
+                                        <!-- Private Repo Badge -->
+                                        <span class="text-[10px] text-slate-500 flex items-center gap-1 bg-dark-900 px-2 py-1 rounded border border-dark-700" title="This repository is currently private.">
+                                            <i class="fas fa-lock text-slate-600"></i> Private Repo
+                                        </span>
+                                        <button onclick="copySnippet('code-espresso', this)" class="text-[10px] text-slate-400 hover:text-white px-2 py-1 rounded bg-dark-700 border border-dark-600 transition-colors">Copy</button>
+                                    </div>
                                 </div>
-                                <pre class="bg-black/50 text-slate-300 font-mono text-[10px] p-3 rounded-lg border border-dark-700 overflow-x-auto"><code id="code-espresso">void adjustPressureProfile(float currentP, float targetP) {
+                                <pre class="bg-black/50 text-slate-300 font-mono text-[10px] p-3 rounded-lg border border-dark-700 overflow-x-auto"><code id="code-espresso" class="language-cpp">void adjustPressureProfile(float currentP, float targetP) {
     float error = targetP - currentP;
     integralTerm += (error * dt);
     integralTerm = constrain(integralTerm, -40.0f, 40.0f);
@@ -433,23 +469,59 @@
                             <div>
                                 <div class="flex justify-between items-center mb-2">
                                     <h4 class="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-2">
-                                        <i class="fas fa-code text-purple-400"></i>
-                                        KubeJS Recipe Script (JS)
+                                        <i class="fas fa-code text-emerald-400"></i>
+                                        Code Snippet (JavaScript)
                                     </h4>
-                                    <button onclick="copySnippet('code-modpack', this)" class="text-[10px] text-slate-400 hover:text-white px-2 py-1 rounded bg-dark-700 border border-dark-600 transition-colors">Copy</button>
+                                    <div class="flex items-center gap-3">
+                                        <!-- Private Repo Badge -->
+                                        <span class="text-[10px] text-slate-500 flex items-center gap-1 bg-dark-900 px-2 py-1 rounded border border-dark-700" title="This Repository is currenlty private.">
+                                            <i class="fas fa-lock text-slate-600"></i> Private Repo
+                                        </span>
+                                        <button onclick="copySnippet('code-modpack', this)" class="text-[10px] text-slate-400 hover:text-white px-2 py-1 rounded bg-dark-700 border border-dark-600 transition-colors">Copy</button>
+                                    </div>
                                 </div>
-                                <pre class="bg-black/50 text-slate-300 font-mono text-[10px] p-3 rounded-lg border border-dark-700 overflow-x-auto"><code id="code-modpack">ServerEvents.recipes(event => {
-  // Custom progression tier gating
-  event.shaped('kubejs:advanced_alloy', [
-    ' I ',
-    'RCR',
-    ' I '
-  ], {
-    I: 'minecraft:iron_ingot',
-    R: 'minecraft:redstone',
-    C: 'create:andesite_alloy'
-  })
-})</code></pre>
+                                <pre class="bg-black/50 text-slate-300 font-mono text-[10px] p-3 rounded-lg border border-dark-700 overflow-x-auto"><code id="code-modpack" class="language-javascript">
+function ingredientCaching (){
+
+    console.log("[COP] Ingredients Caching started...")
+
+    let startTime = Date.now()
+
+    let { item } = Stages_Exception;
+
+    // Loop over each stage to collect ingredients
+    for (let key in Stages) {
+        let { stage_text, modids } = Stages[key];
+        let ingredientsByType = new $HashMap();
+
+        let itemExceptionsByStage = item.get(key)
+
+        // Loop over all registered ingredient types
+        global.jeiRuntime.getIngredientManager().getRegisteredIngredientTypes().forEach(type => {
+            let ingredientsPerModID = [];
+            let ingredients_typed = global.jeiRuntime.ingredientManager.getAllIngredients(type);
+
+            // Collect ingredients for mods in the current stage
+            ingredients_typed.forEach(ingredient => {
+
+                let ResourceLocation = global.jeiRuntime.ingredientManager.getIngredientHelper(ingredient).getResourceLocation(ingredient)
+                let modid = ResourceLocation.getNamespace().toString();
+
+                /**
+                * Check if the modid is in that stage and the itemid is not an exception for that stage.
+                */
+                if (modids.contains(modid) && (!itemExceptionsByStage || !itemExceptionsByStage.contains(ResourceLocation.toString()))) {
+
+                    /** 
+                    * ingredientsPerModID has all Ingredients for one Type and only by the filtered modids
+                    * Structure:
+                    *              type -> ingredients
+                    */
+                    ingredientsPerModID.push(ingredient);
+                }
+
+                ...
+                                </code></pre>
                             </div>
                         </div>
                     </div>
@@ -804,27 +876,11 @@
                 `;
             } else if (type === 'pcb-layout') {
                 lightboxCanvas.innerHTML = `
-                    <div class="w-full h-full flex flex-col justify-between p-4 bg-dark-900 font-mono text-emerald-400 border border-emerald-500/30 rounded-lg">
-                        <div class="flex justify-between text-xs border-b border-emerald-500/20 pb-2">
-                            <span>EASYEDA PROFESSIONAL</span>
-                            <span>LAYER: TOP_COPPER</span>
-                        </div>
-                        <div class="flex flex-col items-center justify-center my-auto space-y-2">
-                            <svg class="w-40 h-40 text-emerald-400/80" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <rect x="10" y="10" width="100" height="100" rx="6" stroke-dasharray="2 2"/>
-                                <rect x="25" y="25" width="30" height="45" fill="rgba(16,185,129,0.1)"/>
-                                <circle cx="85" cy="40" r="10"/>
-                                <circle cx="85" cy="75" r="10"/>
-                            </svg>
-                        </div>
-                    </div>
+                    <img src="assets/pcb-layers-screenshot.png" alt="PCB Layer View" class="w-full h-full object-contain rounded-lg">
                 `;
             } else {
                 lightboxCanvas.innerHTML = `
-                    <div class="w-full h-full flex flex-col items-center justify-center text-center p-6 space-y-4">
-                        <i class="fas fa-tools text-5xl text-accent-400/60"></i>
-                        <p class="text-sm font-mono text-slate-300">Detailed schematic & engineering inspection plan loaded.</p>
-                    </div>
+                    <img src="assets/schematic-screenshot.png" alt="Schematic View" class="w-full h-full object-contain rounded-lg">
                 `;
             }
 
@@ -845,5 +901,11 @@
             }
         });
     </script>
+
+    <!-- Prism.js Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
 </body>
 </html>
