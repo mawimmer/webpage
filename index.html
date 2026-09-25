@@ -49,6 +49,15 @@
         .delay-200 { animation-delay: 0.2s; }
         .delay-300 { animation-delay: 0.3s; }
         .text-glow { text-shadow: 0 0 20px rgba(56, 189, 248, 0.4); }
+
+        /* Lightbox animation */
+        .lightbox-modal {
+            transition: opacity 0.25s ease-out, visibility 0.25s ease-out;
+        }
+        .lightbox-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
     </style>
 </head>
 
@@ -68,6 +77,8 @@
                     <a href="#skills" class="text-sm font-medium text-slate-300 hover:text-accent-400 transition-colors">Skills</a>
                     <a href="#projects" class="text-sm font-medium text-slate-300 hover:text-accent-400 transition-colors">Projects</a>
                     <a href="#experience" class="text-sm font-medium text-slate-300 hover:text-accent-400 transition-colors">Experience</a>
+                    <a href="#interests" class="text-sm font-medium text-slate-300 hover:text-accent-400 transition-colors">Interests</a>
+
                 </nav>
                 <div class="md:hidden flex items-center">
                     <button class="text-slate-300 hover:text-white focus:outline-none">
@@ -84,14 +95,17 @@
         <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
         
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <p class="text-accent-400 font-medium tracking-wide mb-4 fade-in">Welcome to my portfolio</p>
-            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight fade-in delay-100">
+            <h1 class="text-6xl md:text-8xl font-bold text-white mb-6 tracking-tight fade-in delay-100">
                 Hi, I'm <br class="md:hidden" />
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-400 to-emerald-400 text-glow">Matt.</span>
             </h1>
-            <p class="text-xl md:text-2xl text-slate-400 mb-10 max-w-2xl mx-auto fade-in delay-200">
-                Molecular Biosciences Student & Tech Enthusiast
-            </p>
+            <div class="text-lg md:text-xl text-slate-400 mb-10 max-w-3xl mx-auto fade-in delay-200 flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 flex-wrap">
+                <span class="text-white font-semibold">Molecular Biosciences Student</span>
+                <span class="hidden md:inline text-accent-500">•</span>
+                <span>Trained Mechanical Technician</span>
+                <span class="hidden md:inline text-accent-500">•</span>
+                <span>Developer</span>
+            </div>
             <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 fade-in delay-300">
                 <a href="#projects" class="px-8 py-3 bg-accent-500 hover:bg-accent-400 text-white font-semibold rounded-lg shadow-lg hover:shadow-accent-500/30 transition-all duration-300 w-full sm:w-auto">
                     View My Projects
@@ -114,7 +128,7 @@
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6 text-lg text-slate-300 leading-relaxed">
                     <p>
-                        I am currently studying <strong class="text-white">Molecular Biosciences</strong> at JKU Linz, driven by a fascination for the building blocks of life and complex biological systems.
+                        I am currently studying <strong class="text-white">Molecular Biosciences</strong> at JKU Linz and PLUS, driven by a fascination for the building blocks of life and complex biological systems.
                     </p>
                     <p>
                         What sets my journey apart is my multidisciplinary background. Before diving into the life sciences, I built a strong foundation in <strong class="text-white">mechanical engineering</strong> and software development. 
@@ -148,7 +162,7 @@
             
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Skill 1: Programming -->
-                <div class="bg-dark-800 rounded-2xl p-6 border border-dark-700 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                <div class="bg-dark-800 rounded-2xl p-6 border border-dark-700 hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(79,70,229,0.3)] transition-all duration-500">
                     <i class="fas fa-code text-3xl text-accent-400 mb-4"></i>
                     <h3 class="text-lg font-bold text-white mb-3">Programming</h3>
                     <div class="flex flex-wrap gap-2">
@@ -159,7 +173,7 @@
                 </div>
 
                 <!-- Skill 2: Hardware -->
-                <div class="bg-dark-800 rounded-2xl p-6 border border-dark-700 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                <div class="bg-dark-800 rounded-2xl p-6 border border-dark-700 hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(79,70,229,0.3)] transition-all duration-500">
                     <i class="fas fa-microchip text-3xl text-emerald-400 mb-4"></i>
                     <h3 class="text-lg font-bold text-white mb-3">Hardware & Embedded</h3>
                     <div class="flex flex-wrap gap-2">
@@ -171,18 +185,18 @@
                 </div>
 
                 <!-- Skill 3: CAD -->
-                <div class="bg-dark-800 rounded-2xl p-6 border border-dark-700 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                <div class="bg-dark-800 rounded-2xl p-6 border border-dark-700 hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(79,70,229,0.3)] transition-all duration-500">
                     <i class="fas fa-cube text-3xl text-purple-400 mb-4"></i>
                     <h3 class="text-lg font-bold text-white mb-3">3D CAD</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="px-2 py-1 bg-dark-900 text-xs rounded text-slate-300 border border-dark-700">PTC Creo</span>
                         <span class="px-2 py-1 bg-dark-900 text-xs rounded text-slate-300 border border-dark-700">Fusion 360</span>
-                        <span class="px-2 py-1 bg-dark-900 text-xs rounded text-slate-300 border border-dark-700">3D Printing</span>
+                        <span class="px-2 py-1 bg-dark-900 text-xs rounded text-slate-300 border border-dark-700">Solid Edge</span>
                     </div>
                 </div>
                 
                 <!-- Skill 4: Life Sciences -->
-                <div class="bg-dark-800 rounded-2xl p-6 border border-dark-700 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                <div class="bg-dark-800 rounded-2xl p-6 border border-dark-700 hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(79,70,229,0.3)] transition-all duration-500">
                     <i class="fas fa-flask text-3xl text-rose-400 mb-4"></i>
                     <h3 class="text-lg font-bold text-white mb-3">Life Sciences</h3>
                     <div class="flex flex-wrap gap-2">
@@ -205,48 +219,238 @@
             
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Project 1 -->
-                <div class="group relative overflow-hidden rounded-2xl bg-dark-900 border border-dark-700 hover:border-accent-500/50 transition-colors">
-                    <div class="p-6">
-                        <i class="fas fa-lightbulb text-3xl text-accent-400 mb-4"></i>
-                        <h3 class="text-xl font-bold text-white mb-3">Custom Smart Lighting</h3>
-                        <p class="text-sm text-slate-400 mb-6">
+                <div class="project-card group relative overflow-hidden rounded-2xl bg-dark-900 border border-dark-700 hover:border-accent-500/50 transition-colors flex flex-col transition-all duration-500">                    <div class="p-6 flex flex-col flex-grow">
+                    <div class="w-12 h-12 rounded-xl bg-slate-900 flex items-center justify-center group-hover:scale-110 transition-transform duration-500 mb-6">
+                        <i class="fas fa-lightbulb text-3xl text-accent-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Custom Smart Lighting</h3>
+                        <p class="text-sm text-slate-400 mb-6 flex-grow">
                             Developed a custom lighting system using ESP32 and custom WLED firmware. Integrated rotary encoders and designed a custom PCB to handle inputs and power distribution.
                         </p>
-                        <div class="flex flex-wrap gap-2 text-xs font-medium text-accent-400">
+                        <div class="flex flex-wrap gap-2 text-xs font-medium text-accent-400 mb-6">
                             <span>#ESP32</span>
                             <span>#WLED</span>
                             <span>#PCB Design</span>
+                        </div>
+
+                        <!-- Accordion Toggle Button -->
+                        <button 
+                            onclick="toggleAccordion('wled-proof', this)"
+                            class="w-full py-3 px-4 rounded-xl bg-dark-800 hover:bg-dark-700 border border-dark-700 hover:border-accent-500/60 text-accent-400 font-medium text-sm flex items-center justify-between transition-all mt-auto"
+                            aria-expanded="false"
+                        >
+                            <span class="flex items-center gap-2">
+                                <i class="fas fa-microchip"></i>
+                                <span>View Details</span>
+                            </span>
+                            <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                        </button>
+
+                        <!-- Expandable Proof Content -->
+                        <div id="wled-proof" class="hidden mt-6 pt-6 border-t border-dark-700 space-y-6">
+                            <!-- Proof Component 1: PCB Schematics Gallery -->
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-2">
+                                        <i class="fas fa-layer-group text-accent-400"></i>
+                                        Custom PCB Layout
+                                    </h4>
+                                    <span class="text-[10px] text-slate-500">Click to expand</span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <!-- Thumbnail 1 -->
+                                    <div 
+                                        class="relative rounded-lg overflow-hidden border border-dark-700 bg-dark-800 cursor-pointer group/thumb"
+                                        onclick="openLightbox('Custom PCB Routing (EasyEDA)', '2-layer custom board featuring 5V power bus planes, level-shifting for 3.3V to 5V data integrity to strips, and pull-up arrays for hardware rotary encoders.', 'pcb-layout')"
+                                    >
+                                        <div class="h-24 p-2 flex flex-col justify-center items-center border-l-2 border-emerald-500 relative">
+                                            <svg class="w-10 h-10 text-emerald-500/40 mb-2" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5">
+                                                <rect x="15" y="15" width="70" height="70" rx="4"/>
+                                                <path d="M25 35h15v30H25z M55 35h20v15H55z"/>
+                                            </svg>
+                                            <div class="text-[9px] text-slate-400 font-medium text-center leading-tight">PCB Gerber</div>
+                                        </div>
+                                    </div>
+                                    <!-- Thumbnail 2 -->
+                                    <div 
+                                        class="relative rounded-lg overflow-hidden border border-dark-700 bg-dark-800 cursor-pointer group/thumb"
+                                        onclick="openLightbox('Hardware Integration Architecture', 'Schematic breakdown: Arduino Nano ESP32 pinout allocation, optical isolation, RC filters for hardware encoder debouncing, and I2C OLED display lines.', 'schematic')"
+                                    >
+                                        <div class="h-24 p-2 flex flex-col justify-center items-center border-l-2 border-accent-500 relative">
+                                            <i class="fas fa-network-wired text-2xl text-accent-500/40 mb-2"></i>
+                                            <div class="text-[9px] text-slate-400 font-medium text-center leading-tight">Schematic</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Proof Component 2: Code Snippet -->
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-2">
+                                        <i class="fas fa-code text-accent-400"></i>
+                                        WLED Usermod (C++)
+                                    </h4>
+                                    <button onclick="copySnippet('code-wled', this)" class="text-[10px] text-slate-400 hover:text-white px-2 py-1 rounded bg-dark-700 border border-dark-600 transition-colors">Copy</button>
+                                </div>
+                                <pre class="bg-black/50 text-slate-300 font-mono text-[10px] p-3 rounded-lg border border-dark-700 overflow-x-auto"><code id="code-wled">void RotaryUsermod::handleEncoderChange(int8_t step, uint8_t encoderId) {
+    if (encoderId == 0) { 
+        int16_t newBri = (int16_t)bri + (step * 8);
+        bri = (uint8_t)constrain(newBri, 0, 255);
+        stateUpdated(CALL_MODE_DIRECT_CHANGE);
+    } else if (encoderId == 1) { 
+        currentPreset = (currentPreset + step + totalPresets) % totalPresets;
+        applyPreset(currentPreset);
+    }
+}</code></pre>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 2 -->
-                <div class="group relative overflow-hidden rounded-2xl bg-dark-900 border border-dark-700 hover:border-emerald-500/50 transition-colors">
-                    <div class="p-6">
-                        <i class="fas fa-coffee text-3xl text-emerald-400 mb-4"></i>
+                <div class="project-card group relative overflow-hidden rounded-2xl bg-dark-900 border border-dark-700 hover:border-accent-500/50 transition-colors flex flex-col transition-all duration-500">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-12 h-12 rounded-xl bg-slate-900 flex items-center justify-center text-indigo-400 group-hover:scale-110 transition-transform duration-500">
+                                <i class="fas fa-coffee text-3xl text-emerald-400 mb-4"></i>
+                            </div>
+                            <span class="px-3 py-1 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded-full text-xs font-semibold uppercase tracking-wide flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></span>
+                                Ongoing Development
+                            </span>
+                        </div>
                         <h3 class="text-xl font-bold text-white mb-3">Custom Espresso Machine</h3>
-                        <p class="text-sm text-slate-400 mb-6">
-                            Professional-grade custom saturated group head espresso machine. Built utilizing precision CNC milling and turning for metal components. Integrated ESP32-controlled external gear pump for real-time pressure profiling. Mechanical modeling executed in PTC Creo.                        </p>
-                        <div class="flex flex-wrap gap-2 text-xs font-medium text-emerald-400">
+                        <p class="text-sm text-slate-400 mb-6 flex-grow">
+                            Professional-grade custom saturated group head espresso machine. Built utilizing precision CNC milling and turning for metal components. Integrated ESP32-controlled external gear pump for real-time pressure profiling. Mechanical modeling executed in PTC Creo.
+                        </p>
+                        <div class="flex flex-wrap gap-2 text-xs font-medium text-emerald-400 mb-6">
                             <span>#CAD</span>
                             <span>#Engineering</span>
                             <span>#FluidDynamics</span>
+                        </div>
+
+                        <!-- Accordion Toggle Button -->
+                        <button 
+                            onclick="toggleAccordion('espresso-proof', this)"
+                            class="w-full py-3 px-4 rounded-xl bg-dark-800 hover:bg-dark-700 border border-dark-700 hover:border-emerald-500/60 text-emerald-400 font-medium text-sm flex items-center justify-between transition-all mt-auto"
+                            aria-expanded="false"
+                        >
+                            <span class="flex items-center gap-2">
+                                <i class="fas fa-microscope"></i>
+                                <span>View Details</span>
+                            </span>
+                            <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                        </button>
+
+                        <!-- Expandable Proof Content -->
+                        <div id="espresso-proof" class="hidden mt-6 pt-6 border-t border-dark-700 space-y-6">
+                            <!-- Proof Component 1: Technical Drawings Gallery -->
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-2">
+                                        <i class="fas fa-drafting-compass text-cyan-400"></i>
+                                        CAD & Machining
+                                    </h4>
+                                    <span class="text-[10px] text-slate-500">Click to expand</span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div 
+                                        class="relative rounded-lg overflow-hidden border border-dark-700 bg-dark-800 cursor-pointer group/thumb"
+                                        onclick="openLightbox('CAD Drawing: Group Head Section View (PTC Creo)', 'Precision cross-section showing heat exchange fluid channels, boiler connection, and pre-infusion chamber designed with tight manufacturing tolerances (±0.02 mm).', 'cad-blueprint')"
+                                    >
+                                        <div class="h-24 p-2 flex flex-col justify-center items-center border-l-2 border-cyan-500 relative">
+                                            <svg class="w-10 h-10 text-cyan-500/40 mb-2" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5">
+                                                <circle cx="50" cy="50" r="40" stroke-dasharray="3 3"/>
+                                                <circle cx="50" cy="50" r="25"/>
+                                            </svg>
+                                            <div class="text-[9px] text-slate-400 font-medium text-center leading-tight">CAD Draft</div>
+                                        </div>
+                                    </div>
+                                    <div 
+                                        class="relative rounded-lg overflow-hidden border border-dark-700 bg-dark-800 cursor-pointer group/thumb"
+                                        onclick="openLightbox('CNC Turning & Milling Operation Log', 'In-house manufacturing sequence: Turned 316L stainless valve seats on manual lathe followed by 3-axis CNC milling for sensor mounting pockets.', 'cnc-photo')"
+                                    >
+                                        <div class="h-24 p-2 flex flex-col justify-center items-center border-l-2 border-indigo-500 relative">
+                                            <i class="fas fa-layer-group text-2xl text-indigo-500/40 mb-2"></i>
+                                            <div class="text-[9px] text-slate-400 font-medium text-center leading-tight">CNC Parts</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Proof Component 2: Code Snippet -->
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-2">
+                                        <i class="fas fa-code text-emerald-400"></i>
+                                        Pressure Loop (C++)
+                                    </h4>
+                                    <button onclick="copySnippet('code-espresso', this)" class="text-[10px] text-slate-400 hover:text-white px-2 py-1 rounded bg-dark-700 border border-dark-600 transition-colors">Copy</button>
+                                </div>
+                                <pre class="bg-black/50 text-slate-300 font-mono text-[10px] p-3 rounded-lg border border-dark-700 overflow-x-auto"><code id="code-espresso">void adjustPressureProfile(float currentP, float targetP) {
+    float error = targetP - currentP;
+    integralTerm += (error * dt);
+    integralTerm = constrain(integralTerm, -40.0f, 40.0f);
+    
+    float pwmOut = (Kp*error) + (Ki*integralTerm) + feedforwardBase;
+    ledcWrite(PUMP_PWM, constrain((uint32_t)pwmOut, 0, 1023));
+}</code></pre>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Project 3 -->
-                <div class="group relative overflow-hidden rounded-2xl bg-dark-900 border border-dark-700 hover:border-purple-500/50 transition-colors">
-                    <div class="p-6">
-                        <i class="fas fa-server text-3xl text-purple-400 mb-4"></i>
-                        <h3 class="text-xl font-bold text-white mb-3">Home Server & Automation</h3>
-                        <p class="text-sm text-slate-400 mb-6">
-                            Set up and maintain a self-hosted home server utilizing Docker. Managed smart home integrations via Home Assistant and network-wide ad blocking with Pi-hole.
+                <div class="project-card group relative overflow-hidden rounded-2xl bg-dark-900 border border-dark-700 hover:border-accent-500/50 transition-colors flex flex-col transition-all duration-500">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="w-12 h-12 rounded-xl bg-slate-900 flex items-center justify-center group-hover:scale-110 transition-transform duration-500 mb-6">
+                            <i class="fas fa-server text-3xl text-purple-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Modpack</h3>
+                        <p class="text-sm text-slate-400 mb-6 flex-grow">
+                            Designed and deployed own Minecraft Modpack from scratch with custom scripting and data management to drive a progression based gameplay.
                         </p>
-                        <div class="flex flex-wrap gap-2 text-xs font-medium text-purple-400">
-                            <span>#Docker</span>
-                            <span>#HomeAssistant</span>
-                            <span>#Pi-hole</span>
+                        <div class="flex flex-wrap gap-2 text-xs font-medium text-purple-400 mb-6">
+                            <span>#KubeJS</span>
+                            <span>#Linux</span>
+                        </div>
+
+                        <!-- Accordion Toggle Button -->
+                        <button 
+                            onclick="toggleAccordion('modpack-proof', this)"
+                            class="w-full py-3 px-4 rounded-xl bg-dark-800 hover:bg-dark-700 border border-dark-700 hover:border-purple-500/60 text-purple-400 font-medium text-sm flex items-center justify-between transition-all mt-auto"
+                            aria-expanded="false"
+                        >
+                            <span class="flex items-center gap-2">
+                                <i class="fas fa-terminal"></i>
+                                <span>View Details</span>
+                            </span>
+                            <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                        </button>
+
+                        <!-- Expandable Proof Content -->
+                        <div id="modpack-proof" class="hidden mt-6 pt-6 border-t border-dark-700 space-y-6">
+                            <!-- Proof Component 1: Code Snippet -->
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-2">
+                                        <i class="fas fa-code text-purple-400"></i>
+                                        KubeJS Recipe Script (JS)
+                                    </h4>
+                                    <button onclick="copySnippet('code-modpack', this)" class="text-[10px] text-slate-400 hover:text-white px-2 py-1 rounded bg-dark-700 border border-dark-600 transition-colors">Copy</button>
+                                </div>
+                                <pre class="bg-black/50 text-slate-300 font-mono text-[10px] p-3 rounded-lg border border-dark-700 overflow-x-auto"><code id="code-modpack">ServerEvents.recipes(event => {
+  // Custom progression tier gating
+  event.shaped('kubejs:advanced_alloy', [
+    ' I ',
+    'RCR',
+    ' I '
+  ], {
+    I: 'minecraft:iron_ingot',
+    R: 'minecraft:redstone',
+    C: 'create:andesite_alloy'
+  })
+})</code></pre>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -264,10 +468,10 @@
             
             <div class="space-y-6">
                 <!-- Experience Item 1 -->
-                <div class="bg-dark-800 p-6 rounded-xl border border-dark-700 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:border-accent-500/50 transition-colors">
+                <div class="bg-dark-800 p-6 rounded-xl border  border-dark-700 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:border-accent-500/50 transition-colors">
                     <div>
                         <h3 class="text-xl font-bold text-white">University Student Assistant</h3>
-                        <p class="text-slate-400">JKU Linz</p>
+                        <p class="text-slate-400">Paris Lodron University Salzburg</p>
                     </div>
                     <div class="text-accent-400 text-sm font-medium whitespace-nowrap">
                         <i class="fas fa-graduation-cap mr-2"></i>Academic
@@ -299,6 +503,17 @@
                 <!-- Experience Item 4 -->
                 <div class="bg-dark-800 p-6 rounded-xl border border-dark-700 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:border-purple-500/50 transition-colors">
                     <div>
+                        <h3 class="text-xl font-bold text-white">Trained Mechanical Technician</h3>
+                        <p class="text-slate-400">Certified Mechanical Engineering Technician</p>
+                    </div>
+                    <div class="text-orange-400 text-sm font-medium whitespace-nowrap">
+                        <i class="fas fa-gear mr-2"></i>Engineering
+                    </div>
+                </div>
+
+                <!-- Experience Item 5 -->
+                <div class="bg-dark-800 p-6 rounded-xl border border-dark-700 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:border-purple-500/50 transition-colors">
+                    <div>
                         <h3 class="text-xl font-bold text-white">Certified Climbing Instructor & Route Setter</h3>
                         <p class="text-slate-400">Sports & Recreation</p>
                     </div>
@@ -310,8 +525,77 @@
         </div>
     </section>
 
+    <!-- Interests Section -->
+
+    <section id="interests" class="py-24 bg-dark-800/50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-16 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Interests & Hobbies</h2>
+            <div class="w-16 h-1 bg-accent-500 mx-auto rounded-full"></div>
+        </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- Competitive Gaming Card -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 hover:border-blue-500 transition-colors duration-300">
+                    <div class="flex items-center mb-4">
+                        <!-- Gamepad Icon (SVG) -->
+                        <svg class="w-8 h-8 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        <h3 class="text-xl font-semibold text-white">Competitive Gaming</h3>
+                    </div>
+                    
+                    <p class="text-gray-400 leading-relaxed mb-5 text-sm md:text-base">
+                        Passionate about strategy, team coordination, and tactical execution in high-pressure environments. I enjoy analyzing mechanics and optimizing gameplay to perform at a high level.
+                    </p>
+                    
+                    <ul class="text-sm text-gray-300 space-y-3">
+                        <li class="flex items-start">
+                            <span class="text-blue-500 mr-2 mt-0.5">▹</span>
+                            <span>
+                                <strong class="text-white">Dota 2:</strong> Reached the top 7% of the global player base, requiring deep analytical thinking and real-time adaptability.
+                            </span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-500 mr-2 mt-0.5">▹</span>
+                            <span>
+                                <strong class="text-white">Battlefield 6:</strong> Ranked in the top 2000 players europe, demonstrating fast-paced tactical decision-making and strong team communication.
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 hover:border-blue-500 transition-colors duration-300">
+                    <div class="flex items-center mb-4">
+                        <!-- Mountain Icon (SVG) -->
+                        <svg class="w-8 h-8 text-blue-500 mr-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m8 3 4 8 5-5 5 15H2L8 3z"></path>
+                        </svg>
+                        <h3 class="text-xl font-semibold text-white">Sport Climbing</h3>
+                    </div>
+                    
+                    <p class="text-gray-400 leading-relaxed mb-5 text-sm md:text-base">
+                        Dedicated to the physical and mental challenges of climbing. I enjoy applying creative problem-solving to design engaging routes and sharing my knowledge through coaching.                    </p>
+                    
+                    <ul class="text-sm text-gray-300 space-y-3">
+                        <li class="flex items-start">
+                            <span class="text-blue-500 mr-2 mt-0.5">▹</span>
+                            <span>
+                                <strong class="text-white">Climbing:</strong> Highest climbing grade redpoint FA 8a, after months of training and preparation for the ascent.
+                            </span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-500 mr-2 mt-0.5">▹</span>
+                            <span>
+                                <strong class="text-white">Bouldering:</strong> Highest bouldering grade redpoint FA 7c. As a result of my dedication to physical and mental fitness.
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+        </section>
+
     <!-- Footer -->
-    <footer class="border-t border-dark-700 bg-dark-900 py-12 text-center">
+    <footer class="border-t border-dark-700 bg-dark-900 py-12 text-center relative z-10">
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex justify-center space-x-6 text-slate-400 mb-6">
                 <a href="#" class="hover:text-accent-400 transition-colors"><i class="fab fa-github text-2xl"></i></a>
@@ -322,5 +606,244 @@
         </div>
     </footer>
 
+    <!-- Lightbox HTML Structure -->
+    <div 
+        id="lightbox" 
+        class="lightbox-modal fixed inset-0 z-[100] bg-dark-900/90 backdrop-blur-md flex items-center justify-center p-4 md:p-8 opacity-0 invisible"
+        onclick="closeLightbox(event)"
+    >
+        <div class="bg-dark-800 border border-dark-700 rounded-2xl max-w-3xl w-full p-6 relative shadow-2xl space-y-4" onclick="event.stopPropagation()">
+            <!-- Close button -->
+            <button 
+                onclick="closeLightbox()"
+                class="absolute top-4 right-4 text-slate-400 hover:text-white p-2 rounded-lg bg-dark-900 border border-dark-700 transition-colors"
+                aria-label="Close modal"
+            >
+                <i class="fas fa-times text-lg"></i>
+            </button>
+
+            <!-- Modal Header -->
+            <div>
+                <span class="text-xs font-mono uppercase tracking-widest text-accent-400">Technical Documentation</span>
+                <h3 id="lightbox-title" class="text-xl md:text-2xl font-bold text-white mt-1"></h3>
+            </div>
+
+            <!-- Visual Blueprint Display Area -->
+            <div id="lightbox-canvas" class="w-full h-72 md:h-96 rounded-xl bg-dark-900 border border-dark-700 flex items-center justify-center p-6 relative overflow-hidden">
+                <!-- Dynamically populated blueprint preview -->
+            </div>
+
+            <!-- Caption / Description -->
+            <p id="lightbox-desc" class="text-slate-300 text-sm leading-relaxed"></p>
+        </div>
+    </div>
+
+    <script>
+        // Toggle technical accordion mit sanften Animationen
+        function toggleAccordion(id, btn) {
+            // Klick-Spamming verhindern, während die Animation läuft
+            if (btn.disabled) return;
+            btn.disabled = true;
+            setTimeout(() => btn.disabled = false, 1400);
+
+            const container = document.getElementById(id);
+            const icon = btn.querySelector('.fa-chevron-down');
+            const isHidden = container.classList.contains('hidden');
+            
+            // Automatisch das umliegende Grid und die anderen Karten finden
+            const currentCard = btn.closest('.group');
+            const gridContainer = btn.closest('.grid');
+            const allCards = Array.from(gridContainer.children);
+
+            // Standard-Transitions für die weiche Skalierung der Karten setzen
+            allCards.forEach(card => {
+                card.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+            });
+
+            if (isHidden) {
+                // 1. Andere Karten sanft ausblenden (Fade out + Scale down)
+                allCards.forEach(card => {
+                    if (card !== currentCard) {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.95)';
+                    }
+                });
+
+                // 2. Warten bis Fade out fertig ist, dann Layout umbauen
+                setTimeout(() => {
+                    allCards.forEach(card => {
+                        if (card !== currentCard) {
+                            card.classList.add('hidden'); // Aus dem Layout nehmen
+                        }
+                    });
+                    
+                    // Aktuelle Karte auf volle Breite setzen
+                    currentCard.classList.add('md:col-span-3');
+                    
+                    // 3. Container für den Slide-Down vorbereiten
+                    container.classList.remove('hidden');
+                    container.style.maxHeight = '0px';
+                    container.style.opacity = '0';
+                    container.style.overflow = 'hidden';
+                    container.style.transition = 'max-height 0.8s ease-in-out, opacity 0.8s ease-in-out, padding 0.8s ease-in-out, margin 0.8s ease-in-out';
+                    
+                    // Abstände vorübergehend auf 0 setzen, damit es nicht springt
+                    container.style.paddingTop = '0px';
+                    container.style.marginTop = '0px';
+
+                    // 4. Animation in den tatsächlichen Inhalt starten
+                    requestAnimationFrame(() => {
+                        container.style.maxHeight = container.scrollHeight + 150 + 'px'; // Puffer für Inhalt
+                        container.style.opacity = '1';
+                        container.style.paddingTop = '1.5rem'; // Entspricht pt-6
+                        container.style.marginTop = '1.5rem';  // Entspricht mt-6
+                    });
+                    
+                    icon.classList.add('rotate-180');
+                    btn.setAttribute('aria-expanded', 'true');
+                    
+                    // Nach Abschluss der Animation scrollen und max-height aufräumen
+                    setTimeout(() => {
+                        container.style.maxHeight = 'none'; // Wichtig, falls die Lightbox geöffnet wird
+                        currentCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 600);
+
+                }, 300);
+
+            } else {
+                // 1. Accordion sanft einklappen
+                container.style.maxHeight = container.scrollHeight + 'px'; // Fixiere aktuelle Höhe
+                
+                requestAnimationFrame(() => {
+                    container.style.maxHeight = '0px';
+                    container.style.opacity = '0';
+                    container.style.paddingTop = '0px';
+                    container.style.marginTop = '0px';
+                });
+                
+                icon.classList.remove('rotate-180');
+                btn.setAttribute('aria-expanded', 'false');
+
+                // 2. Nach der Animation: Grid wiederherstellen
+                setTimeout(() => {
+                    container.classList.add('hidden');
+                    currentCard.classList.remove('md:col-span-3');
+                    
+                    // Andere Karten wieder ins HTML holen
+                    allCards.forEach(card => {
+                        if (card !== currentCard) {
+                            card.classList.remove('hidden');
+                        }
+                    });
+
+                    // Andere Karten wieder sanft einblenden
+                    requestAnimationFrame(() => {
+                        allCards.forEach(card => {
+                            if (card !== currentCard) {
+                                card.style.opacity = '1';
+                                card.style.transform = 'scale(1)';
+                            }
+                        });
+                    });
+                    
+                }, 800); // 600ms entspricht der Animationsdauer
+            }
+        }
+
+        // Copy code snippet
+        function copySnippet(elementId, btn) {
+            const codeEl = document.getElementById(elementId);
+            const textToCopy = codeEl.innerText;
+            
+            const tempTextArea = document.createElement("textarea");
+            tempTextArea.value = textToCopy;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            
+            try {
+                document.execCommand('copy');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = `Copied!`;
+                btn.classList.add('border-emerald-500/50', 'text-emerald-400');
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.classList.remove('border-emerald-500/50', 'text-emerald-400');
+                }, 2000);
+            } catch (err) {
+                console.error('Failed to copy', err);
+            }
+            document.body.removeChild(tempTextArea);
+        }
+
+        // Lightbox modal handling
+        const lightbox = document.getElementById('lightbox');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const lightboxDesc = document.getElementById('lightbox-desc');
+        const lightboxCanvas = document.getElementById('lightbox-canvas');
+
+        function openLightbox(title, desc, type) {
+            lightboxTitle.innerText = title;
+            lightboxDesc.innerText = desc;
+            
+            if (type === 'cad-blueprint') {
+                lightboxCanvas.innerHTML = `
+                    <div class="w-full h-full flex flex-col justify-between p-4 bg-dark-900 font-mono text-cyan-400 border border-cyan-500/30 rounded-lg">
+                        <div class="flex justify-between text-xs border-b border-cyan-500/20 pb-2">
+                            <span>PTC CREO PARAMETRIC 9.0</span>
+                            <span>SECT_A-A</span>
+                        </div>
+                        <div class="flex flex-col items-center justify-center my-auto space-y-3">
+                            <svg class="w-36 h-36 text-cyan-400/80 animate-pulse" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2">
+                                <circle cx="50" cy="50" r="42" stroke-dasharray="4 2"/>
+                                <circle cx="50" cy="50" r="30"/>
+                                <rect x="30" y="30" width="40" height="40"/>
+                            </svg>
+                            <span class="text-xs text-slate-400">SATURATED GROUP HEAD HOUSING</span>
+                        </div>
+                    </div>
+                `;
+            } else if (type === 'pcb-layout') {
+                lightboxCanvas.innerHTML = `
+                    <div class="w-full h-full flex flex-col justify-between p-4 bg-dark-900 font-mono text-emerald-400 border border-emerald-500/30 rounded-lg">
+                        <div class="flex justify-between text-xs border-b border-emerald-500/20 pb-2">
+                            <span>EASYEDA PROFESSIONAL</span>
+                            <span>LAYER: TOP_COPPER</span>
+                        </div>
+                        <div class="flex flex-col items-center justify-center my-auto space-y-2">
+                            <svg class="w-40 h-40 text-emerald-400/80" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="10" y="10" width="100" height="100" rx="6" stroke-dasharray="2 2"/>
+                                <rect x="25" y="25" width="30" height="45" fill="rgba(16,185,129,0.1)"/>
+                                <circle cx="85" cy="40" r="10"/>
+                                <circle cx="85" cy="75" r="10"/>
+                            </svg>
+                        </div>
+                    </div>
+                `;
+            } else {
+                lightboxCanvas.innerHTML = `
+                    <div class="w-full h-full flex flex-col items-center justify-center text-center p-6 space-y-4">
+                        <i class="fas fa-tools text-5xl text-accent-400/60"></i>
+                        <p class="text-sm font-mono text-slate-300">Detailed schematic & engineering inspection plan loaded.</p>
+                    </div>
+                `;
+            }
+
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox(event) {
+            if (event && event.target !== lightbox && !event.target.closest('button')) return;
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
 </body>
 </html>
