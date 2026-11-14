@@ -374,38 +374,28 @@ if (Encoder.rotationPending && millis() - Encoder.TimeOfLastRotation >= 300) {
 
                         <!-- Expandable Proof Content -->
                         <div id="espresso-proof" class="hidden mt-6 pt-6 border-t border-dark-700 space-y-6">
-                            <!-- Proof Component 1: Technical Drawings Gallery -->
+                            <!-- Proof Component 1: Technical Gallery -->
                             <div>
                                 <div class="flex items-center justify-between mb-3">
                                     <h4 class="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-2">
                                         <i class="fas fa-drafting-compass text-cyan-400"></i>
                                         CAD & Machining
                                     </h4>
-                                    <span class="text-[10px] text-slate-500">Click to expand</span>
                                 </div>
-                                <div class="grid grid-cols-2 gap-3">
-                                    <div 
-                                        class="relative rounded-lg overflow-hidden border border-dark-700 bg-dark-800 cursor-pointer group/thumb"
-                                        onclick="openLightbox('CAD Drawing: Group Head Section View (PTC Creo)', 'Precision cross-section showing heat exchange fluid channels, boiler connection, and pre-infusion chamber designed with tight manufacturing tolerances (±0.02 mm).', 'cad-blueprint')"
-                                    >
-                                        <div class="h-24 p-2 flex flex-col justify-center items-center border-l-2 border-cyan-500 relative">
-                                            <svg class="w-10 h-10 text-cyan-500/40 mb-2" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5">
-                                                <circle cx="50" cy="50" r="40" stroke-dasharray="3 3"/>
-                                                <circle cx="50" cy="50" r="25"/>
-                                            </svg>
-                                            <div class="text-[9px] text-slate-400 font-medium text-center leading-tight">CAD Draft</div>
-                                        </div>
-                                    </div>
-                                    <div 
-                                        class="relative rounded-lg overflow-hidden border border-dark-700 bg-dark-800 cursor-pointer group/thumb"
-                                        onclick="openLightbox('CNC Turning & Milling Operation Log', 'In-house manufacturing sequence: Turned 316L stainless valve seats on manual lathe followed by 3-axis CNC milling for sensor mounting pockets.', 'cnc-photo')"
-                                    >
-                                        <div class="h-24 p-2 flex flex-col justify-center items-center border-l-2 border-indigo-500 relative">
-                                            <i class="fas fa-layer-group text-2xl text-indigo-500/40 mb-2"></i>
-                                            <div class="text-[9px] text-slate-400 font-medium text-center leading-tight">CNC Parts</div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <button
+                                    type="button"
+                                    onclick="openEspressoGallery()"
+                                    class="w-full rounded-lg border border-dark-700 bg-dark-800 hover:border-cyan-500/60 hover:bg-dark-700 px-4 py-3 text-left text-sm text-slate-200 transition-colors flex items-center justify-between"
+                                >
+                                    <span class="flex items-center gap-3">
+                                        <i class="fas fa-images text-cyan-400"></i>
+                                        <span>View CAD &amp; Machining Photos</span>
+                                    </span>
+                                    <span class="flex items-center gap-2 text-xs text-slate-400">
+                                        <span>5 images</span>
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </button>
                             </div>
                             <!-- Proof Component 2: Code Snippet -->
                             <div>
@@ -670,9 +660,9 @@ function ingredientCaching (){
     <footer class="border-t border-dark-700 bg-dark-900 py-12 text-center relative z-10">
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex justify-center space-x-6 text-slate-400 mb-6">
-                <a href="#" class="hover:text-accent-400 transition-colors"><i class="fab fa-github text-2xl"></i></a>
-                <a href="#" class="hover:text-accent-400 transition-colors"><i class="fab fa-linkedin text-2xl"></i></a>
-                <a href="#" class="hover:text-accent-400 transition-colors"><i class="fas fa-envelope text-2xl"></i></a>
+                <a href="https://github.com/mawimmer" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="hover:text-accent-400 transition-colors"><i class="fab fa-github text-2xl"></i></a>
+                <a href="https://linkedin.mawimmer.dev" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="hover:text-accent-400 transition-colors"><i class="fab fa-linkedin text-2xl"></i></a>
+                <a href="mailto:matt@mawimmer.dev" aria-label="Email Matt" class="hover:text-accent-400 transition-colors"><i class="fas fa-envelope text-2xl"></i></a>
             </div>
             <p class="text-slate-500 text-sm">&copy; 2026 Matt. All rights reserved.</p>
         </div>
@@ -684,7 +674,7 @@ function ingredientCaching (){
         class="lightbox-modal fixed inset-0 z-[100] bg-dark-900/90 backdrop-blur-md flex items-center justify-center p-4 md:p-8 opacity-0 invisible"
         onclick="closeLightbox(event)"
     >
-        <div class="bg-dark-800 border border-dark-700 rounded-2xl max-w-3xl w-full p-6 relative shadow-2xl space-y-4" onclick="event.stopPropagation()">
+        <div class="bg-dark-800 border border-dark-700 rounded-2xl max-w-3xl w-full max-h-full overflow-y-auto p-6 relative shadow-2xl space-y-4" onclick="event.stopPropagation()">
             <!-- Close button -->
             <button 
                 onclick="closeLightbox()"
@@ -701,12 +691,15 @@ function ingredientCaching (){
             </div>
 
             <!-- Visual Blueprint Display Area -->
-            <div id="lightbox-canvas" class="w-full h-72 md:h-96 rounded-xl bg-dark-900 border border-dark-700 flex items-center justify-center p-6 relative overflow-hidden">
+            <div id="lightbox-canvas" class="w-full h-64 md:h-96 rounded-xl bg-dark-900 border border-dark-700 flex items-center justify-center p-2 md:p-6 relative overflow-hidden">
                 <!-- Dynamically populated blueprint preview -->
             </div>
 
             <!-- Caption / Description -->
-            <p id="lightbox-desc" class="text-slate-300 text-sm leading-relaxed"></p>
+            <div class="flex items-start justify-between gap-4">
+                <p id="lightbox-desc" class="text-slate-300 text-sm leading-relaxed"></p>
+                <span id="lightbox-counter" class="hidden shrink-0 text-xs text-slate-400"></span>
+            </div>
         </div>
     </div>
 
@@ -852,8 +845,51 @@ function ingredientCaching (){
         const lightboxTitle = document.getElementById('lightbox-title');
         const lightboxDesc = document.getElementById('lightbox-desc');
         const lightboxCanvas = document.getElementById('lightbox-canvas');
+        const lightboxCounter = document.getElementById('lightbox-counter');
+        const espressoGallery = [
+            { src: 'assets/wire-view.png', title: 'Wire View' },
+            { src: 'assets/explosion-view.png', title: 'Exploded View' },
+            { src: 'assets/ansys-view.png', title: 'ANSYS Simulation' },
+            { src: 'assets/fluid-simulation.png', title: 'Fluid Simulation' },
+            { src: 'assets/gears-view.png', title: 'Gear Assembly' }
+        ];
+        let activeGallery = null;
+        let activeGalleryIndex = 0;
+
+        function renderEspressoGallerySlide() {
+            const slide = activeGallery[activeGalleryIndex];
+            lightboxTitle.innerText = slide.title;
+            lightboxDesc.innerText = 'CAD and engineering work for the custom espresso machine.';
+            lightboxCounter.innerText = `${activeGalleryIndex + 1} / ${activeGallery.length}`;
+            lightboxCounter.classList.remove('hidden');
+            lightboxCanvas.innerHTML = `
+                <img src="${slide.src}" alt="${slide.title}" class="w-full h-full object-contain rounded-lg">
+                <button type="button" onclick="changeEspressoGallerySlide(-1)" aria-label="Previous image" class="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-dark-900/80 hover:bg-dark-700 text-white w-10 h-10 flex items-center justify-center border border-dark-600 transition-colors">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button type="button" onclick="changeEspressoGallerySlide(1)" aria-label="Next image" class="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-dark-900/80 hover:bg-dark-700 text-white w-10 h-10 flex items-center justify-center border border-dark-600 transition-colors">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            `;
+        }
+
+        function openEspressoGallery() {
+            activeGallery = espressoGallery;
+            activeGalleryIndex = 0;
+            renderEspressoGallerySlide();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function changeEspressoGallerySlide(direction) {
+            if (!activeGallery) return;
+            activeGalleryIndex = (activeGalleryIndex + direction + activeGallery.length) % activeGallery.length;
+            renderEspressoGallerySlide();
+        }
 
         function openLightbox(title, desc, type) {
+            activeGallery = null;
+            lightboxCounter.classList.add('hidden');
             lightboxTitle.innerText = title;
             lightboxDesc.innerText = desc;
             
@@ -888,16 +924,36 @@ function ingredientCaching (){
             document.body.style.overflow = 'hidden';
         }
 
+        let touchStartX = null;
+        lightboxCanvas.addEventListener('touchstart', (event) => {
+            touchStartX = event.changedTouches[0].screenX;
+        }, { passive: true });
+
+        lightboxCanvas.addEventListener('touchend', (event) => {
+            if (touchStartX === null || !activeGallery) return;
+            const swipeDistance = event.changedTouches[0].screenX - touchStartX;
+            touchStartX = null;
+            if (Math.abs(swipeDistance) > 50) {
+                changeEspressoGallerySlide(swipeDistance < 0 ? 1 : -1);
+            }
+        }, { passive: true });
+
         function closeLightbox(event) {
             if (event && event.target !== lightbox && !event.target.closest('button')) return;
             lightbox.classList.remove('active');
             document.body.style.overflow = '';
+            activeGallery = null;
         }
 
         window.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && lightbox.classList.contains('active')) {
                 lightbox.classList.remove('active');
                 document.body.style.overflow = '';
+                activeGallery = null;
+            } else if (lightbox.classList.contains('active') && activeGallery && e.key === 'ArrowLeft') {
+                changeEspressoGallerySlide(-1);
+            } else if (lightbox.classList.contains('active') && activeGallery && e.key === 'ArrowRight') {
+                changeEspressoGallerySlide(1);
             }
         });
     </script>
